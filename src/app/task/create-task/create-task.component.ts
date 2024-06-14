@@ -44,7 +44,7 @@ export class CreateTaskComponent {
       isTemplate: false,
     },
     {
-      caption: 'Creation Date',
+      caption: 'Date',
       dataField: 'createdAt',
       isTemplate: true,
     },
@@ -130,10 +130,12 @@ export class CreateTaskComponent {
       })
       .subscribe(
         (res: any) => {
-          this.dataSource = res.data;
-          this.dataSource.forEach(
-            (x: { sNumber: number }, i: number) => (x.sNumber = i + 1)
-          );
+          if (Array.isArray(res.data)) {
+            this.dataSource = res.data;
+            this.dataSource.forEach(
+              (x: { sNumber: number }, i: number) => (x.sNumber = i + 1)
+            );
+          }
         },
         (error) => {
           this.toastr.error(error.error);
@@ -195,8 +197,8 @@ export class CreateTaskComponent {
       );
   }
 
-  search(event: Event) {
-    const value = (event.target as HTMLInputElement).value;
+  search(event: any) {
+    const value = event.target.value;
     this.taskService
       .tasksControllerFilterAndSearchTasks({
         filter: this.filterValue,

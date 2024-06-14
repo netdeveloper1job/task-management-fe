@@ -25,6 +25,7 @@ import { tasksControllerRemove } from '../fn/tasks/tasks-controller-remove';
 import { TasksControllerRemove$Params } from '../fn/tasks/tasks-controller-remove';
 import { tasksControllerUpdate } from '../fn/tasks/tasks-controller-update';
 import { TasksControllerUpdate$Params } from '../fn/tasks/tasks-controller-update';
+import { TaskWithResponse } from '../models/task-with-response';
 
 @Injectable({ providedIn: 'root' })
 export class TasksService extends BaseService {
@@ -41,7 +42,7 @@ export class TasksService extends BaseService {
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  tasksControllerCreate$Response(params: TasksControllerCreate$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
+  tasksControllerCreate$Response(params: TasksControllerCreate$Params, context?: HttpContext): Observable<StrictHttpResponse<TaskWithResponse>> {
     return tasksControllerCreate(this.http, this.rootUrl, params, context);
   }
 
@@ -51,9 +52,9 @@ export class TasksService extends BaseService {
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  tasksControllerCreate(params: TasksControllerCreate$Params, context?: HttpContext): Observable<void> {
+  tasksControllerCreate(params: TasksControllerCreate$Params, context?: HttpContext): Observable<TaskWithResponse> {
     return this.tasksControllerCreate$Response(params, context).pipe(
-      map((r: StrictHttpResponse<void>): void => r.body)
+      map((r: StrictHttpResponse<TaskWithResponse>): TaskWithResponse => r.body)
     );
   }
 
@@ -66,7 +67,7 @@ export class TasksService extends BaseService {
    *
    * This method doesn't expect any request body.
    */
-  tasksControllerFindAll$Response(params: TasksControllerFindAll$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
+  tasksControllerFindAll$Response(params: TasksControllerFindAll$Params, context?: HttpContext): Observable<StrictHttpResponse<TaskWithResponse>> {
     return tasksControllerFindAll(this.http, this.rootUrl, params, context);
   }
 
@@ -76,9 +77,9 @@ export class TasksService extends BaseService {
    *
    * This method doesn't expect any request body.
    */
-  tasksControllerFindAll(params: TasksControllerFindAll$Params, context?: HttpContext): Observable<void> {
+  tasksControllerFindAll(params: TasksControllerFindAll$Params, context?: HttpContext): Observable<TaskWithResponse> {
     return this.tasksControllerFindAll$Response(params, context).pipe(
-      map((r: StrictHttpResponse<void>): void => r.body)
+      map((r: StrictHttpResponse<TaskWithResponse>): TaskWithResponse => r.body)
     );
   }
 
@@ -91,7 +92,7 @@ export class TasksService extends BaseService {
    *
    * This method doesn't expect any request body.
    */
-  tasksControllerFindOne$Response(params: TasksControllerFindOne$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
+  tasksControllerFindOne$Response(params: TasksControllerFindOne$Params, context?: HttpContext): Observable<StrictHttpResponse<TaskWithResponse>> {
     return tasksControllerFindOne(this.http, this.rootUrl, params, context);
   }
 
@@ -101,9 +102,9 @@ export class TasksService extends BaseService {
    *
    * This method doesn't expect any request body.
    */
-  tasksControllerFindOne(params: TasksControllerFindOne$Params, context?: HttpContext): Observable<void> {
+  tasksControllerFindOne(params: TasksControllerFindOne$Params, context?: HttpContext): Observable<TaskWithResponse> {
     return this.tasksControllerFindOne$Response(params, context).pipe(
-      map((r: StrictHttpResponse<void>): void => r.body)
+      map((r: StrictHttpResponse<TaskWithResponse>): TaskWithResponse => r.body)
     );
   }
 
@@ -116,7 +117,7 @@ export class TasksService extends BaseService {
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  tasksControllerUpdate$Response(params: TasksControllerUpdate$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
+  tasksControllerUpdate$Response(params: TasksControllerUpdate$Params, context?: HttpContext): Observable<StrictHttpResponse<TaskWithResponse>> {
     return tasksControllerUpdate(this.http, this.rootUrl, params, context);
   }
 
@@ -126,9 +127,9 @@ export class TasksService extends BaseService {
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  tasksControllerUpdate(params: TasksControllerUpdate$Params, context?: HttpContext): Observable<void> {
+  tasksControllerUpdate(params: TasksControllerUpdate$Params, context?: HttpContext): Observable<TaskWithResponse> {
     return this.tasksControllerUpdate$Response(params, context).pipe(
-      map((r: StrictHttpResponse<void>): void => r.body)
+      map((r: StrictHttpResponse<TaskWithResponse>): TaskWithResponse => r.body)
     );
   }
 
@@ -141,7 +142,7 @@ export class TasksService extends BaseService {
    *
    * This method doesn't expect any request body.
    */
-  tasksControllerRemove$Response(params: TasksControllerRemove$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
+  tasksControllerRemove$Response(params: TasksControllerRemove$Params, context?: HttpContext): Observable<StrictHttpResponse<TaskWithResponse>> {
     return tasksControllerRemove(this.http, this.rootUrl, params, context);
   }
 
@@ -151,9 +152,9 @@ export class TasksService extends BaseService {
    *
    * This method doesn't expect any request body.
    */
-  tasksControllerRemove(params: TasksControllerRemove$Params, context?: HttpContext): Observable<void> {
+  tasksControllerRemove(params: TasksControllerRemove$Params, context?: HttpContext): Observable<TaskWithResponse> {
     return this.tasksControllerRemove$Response(params, context).pipe(
-      map((r: StrictHttpResponse<void>): void => r.body)
+      map((r: StrictHttpResponse<TaskWithResponse>): TaskWithResponse => r.body)
     );
   }
 
@@ -166,7 +167,7 @@ export class TasksService extends BaseService {
    *
    * This method doesn't expect any request body.
    */
-  tasksControllerGetTasksByUserId$Response(params: TasksControllerGetTasksByUserId$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
+  tasksControllerGetTasksByUserId$Response(params: TasksControllerGetTasksByUserId$Params, context?: HttpContext): Observable<StrictHttpResponse<TaskWithResponse>> {
     return tasksControllerGetTasksByUserId(this.http, this.rootUrl, params, context);
   }
 
@@ -176,9 +177,9 @@ export class TasksService extends BaseService {
    *
    * This method doesn't expect any request body.
    */
-  tasksControllerGetTasksByUserId(params: TasksControllerGetTasksByUserId$Params, context?: HttpContext): Observable<void> {
+  tasksControllerGetTasksByUserId(params: TasksControllerGetTasksByUserId$Params, context?: HttpContext): Observable<TaskWithResponse> {
     return this.tasksControllerGetTasksByUserId$Response(params, context).pipe(
-      map((r: StrictHttpResponse<void>): void => r.body)
+      map((r: StrictHttpResponse<TaskWithResponse>): TaskWithResponse => r.body)
     );
   }
 
@@ -191,7 +192,7 @@ export class TasksService extends BaseService {
    *
    * This method doesn't expect any request body.
    */
-  tasksControllerFilterTask$Response(params: TasksControllerFilterTask$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
+  tasksControllerFilterTask$Response(params: TasksControllerFilterTask$Params, context?: HttpContext): Observable<StrictHttpResponse<TaskWithResponse>> {
     return tasksControllerFilterTask(this.http, this.rootUrl, params, context);
   }
 
@@ -201,9 +202,9 @@ export class TasksService extends BaseService {
    *
    * This method doesn't expect any request body.
    */
-  tasksControllerFilterTask(params: TasksControllerFilterTask$Params, context?: HttpContext): Observable<void> {
+  tasksControllerFilterTask(params: TasksControllerFilterTask$Params, context?: HttpContext): Observable<TaskWithResponse> {
     return this.tasksControllerFilterTask$Response(params, context).pipe(
-      map((r: StrictHttpResponse<void>): void => r.body)
+      map((r: StrictHttpResponse<TaskWithResponse>): TaskWithResponse => r.body)
     );
   }
 
@@ -216,7 +217,7 @@ export class TasksService extends BaseService {
    *
    * This method doesn't expect any request body.
    */
-  tasksControllerFilterAndSearchTasks$Response(params: TasksControllerFilterAndSearchTasks$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
+  tasksControllerFilterAndSearchTasks$Response(params: TasksControllerFilterAndSearchTasks$Params, context?: HttpContext): Observable<StrictHttpResponse<TaskWithResponse>> {
     return tasksControllerFilterAndSearchTasks(this.http, this.rootUrl, params, context);
   }
 
@@ -226,9 +227,9 @@ export class TasksService extends BaseService {
    *
    * This method doesn't expect any request body.
    */
-  tasksControllerFilterAndSearchTasks(params: TasksControllerFilterAndSearchTasks$Params, context?: HttpContext): Observable<void> {
+  tasksControllerFilterAndSearchTasks(params: TasksControllerFilterAndSearchTasks$Params, context?: HttpContext): Observable<TaskWithResponse> {
     return this.tasksControllerFilterAndSearchTasks$Response(params, context).pipe(
-      map((r: StrictHttpResponse<void>): void => r.body)
+      map((r: StrictHttpResponse<TaskWithResponse>): TaskWithResponse => r.body)
     );
   }
 

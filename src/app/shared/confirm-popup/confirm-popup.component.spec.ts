@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ConfirmPopupComponent } from './confirm-popup.component';
+import { BsModalService } from 'ngx-bootstrap/modal';
 
 describe('ConfirmPopupComponent', () => {
   let component: ConfirmPopupComponent;
@@ -8,7 +9,10 @@ describe('ConfirmPopupComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ConfirmPopupComponent]
+      declarations: [ConfirmPopupComponent],
+      providers: [
+        { provide: BsModalService }
+      ],
     });
     fixture = TestBed.createComponent(ConfirmPopupComponent);
     component = fixture.componentInstance;

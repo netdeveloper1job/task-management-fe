@@ -6,23 +6,24 @@ import { filter, map } from 'rxjs/operators';
 import { StrictHttpResponse } from '../../strict-http-response';
 import { RequestBuilder } from '../../request-builder';
 
+import { TaskWithResponse } from '../../models/task-with-response';
 
 export interface TasksControllerFindOne$Params {
   id: string;
 }
 
-export function tasksControllerFindOne(http: HttpClient, rootUrl: string, params: TasksControllerFindOne$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
+export function tasksControllerFindOne(http: HttpClient, rootUrl: string, params: TasksControllerFindOne$Params, context?: HttpContext): Observable<StrictHttpResponse<TaskWithResponse>> {
   const rb = new RequestBuilder(rootUrl, tasksControllerFindOne.PATH, 'get');
   if (params) {
     rb.path('id', params.id, {});
   }
 
   return http.request(
-    rb.build({ responseType: 'text', accept: '*/*', context })
+    rb.build({ responseType: 'json', accept: 'application/json', context })
   ).pipe(
     filter((r: any): r is HttpResponse<any> => r instanceof HttpResponse),
     map((r: HttpResponse<any>) => {
-      return (r as HttpResponse<any>).clone({ body: undefined }) as StrictHttpResponse<void>;
+      return r as StrictHttpResponse<TaskWithResponse>;
     })
   );
 }
