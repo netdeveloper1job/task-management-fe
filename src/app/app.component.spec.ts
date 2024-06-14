@@ -14,9 +14,9 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'Inspection-Portal'`, () => {
+  it(`should have as title 'Task-Management'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('Inspection-Portal');
+    expect(app.title).toEqual('Task-Management');
   });
 });

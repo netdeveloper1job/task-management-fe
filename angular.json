@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Inspection-Portal": {
+    "Task-Management": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/inspection-portal",
+            "outputPath": "dist/Task-Management",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -106,16 +106,16 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "prod":{
-              "browserTarget": "Inspection-Portal:build:prod"
+              "browserTarget": "Task-Management:build:prod"
             },
             "dev":{
-              "browserTarget": "Inspection-Portal:build:dev"
+              "browserTarget": "Task-Management:build:dev"
             },
             "production": {
-              "browserTarget": "Inspection-Portal:build:production"
+              "browserTarget": "Task-Management:build:production"
             },
             "development": {
-              "browserTarget": "Inspection-Portal:build:development"
+              "browserTarget": "Task-Management:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -123,7 +123,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Inspection-Portal:build"
+            "browserTarget": "Task-Management:build"
           }
         },
         "test": {

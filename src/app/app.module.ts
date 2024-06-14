@@ -9,7 +9,6 @@ import { environment } from 'src/environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { CoreModule } from './core/core.module';
-
 import { SharedModule } from "./shared/shared.module";
 
 @NgModule({
