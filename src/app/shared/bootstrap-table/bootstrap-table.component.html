@@ -1,0 +1,81 @@
+<div class="bootsrtap-table" [ngClass]="theme" style="overflow-x: auto">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th *ngFor="let column of columns" [ngStyle]="column.style" [ngClass]="{'fix-column': column.dataField === 'Action'}">
+          <span *ngIf="!column.isHeaderTemplate">{{ column.caption }}</span>
+          <ng-container *ngIf="column.isHeaderTemplate">
+            <ng-template
+              *ngTemplateOutlet="headerTemplate; context: { column: column }"
+            ></ng-template>
+          </ng-container>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngIf="pagination === undefined">
+        <tr
+          *ngFor="let item of dataSource"
+          [ngClass]="{ 'table-danger': item?.rowDisabled === 'true' }"
+        >
+          <ng-container *ngFor="let column of columns">
+            <td [ngStyle]="column.style" [ngClass]="{'fix-column': column.dataField === 'Action'}">
+              <ng-container *ngIf="!column.isTemplate"
+                ><div
+                  [ngClass]="{ 'text-ellipsis': column.isTooltip }"
+                  [tooltip]="
+                    column.isTooltip ? item[column.dataField] ?? '-' : ''
+                  "
+                >
+                  {{ item[column.dataField] ?? "-" }}
+                </div>
+              </ng-container>
+              <ng-container *ngIf="column.isTemplate">
+                <ng-template
+                  *ngTemplateOutlet="
+                    bodyTemplate;
+                    context: { row: item, column: column }
+                  "
+                ></ng-template>
+              </ng-container>
+            </td>
+          </ng-container>
+        </tr>
+      </ng-container>
+      <ng-container *ngIf="pagination === true && dataSource?.length > 0">
+        <tr
+          *ngFor="let item of dataSource | paginate : paginationConfig"
+          [ngClass]="{ 'table-danger': item?.rowDisabled === 'true' }"
+        >
+          <ng-container *ngFor="let column of columns">
+            <td [ngStyle]="column.style">
+              <ng-container *ngIf="!column.isTemplate">{{
+                item[column.dataField] ?? "-"
+              }}</ng-container>
+              <ng-container *ngIf="column.isTemplate">
+                <ng-template
+                  *ngTemplateOutlet="
+                    bodyTemplate;
+                    context: { row: item, column: column }
+                  "
+                ></ng-template>
+              </ng-container>
+            </td>
+          </ng-container>
+        </tr>
+      </ng-container>
+      <tr *ngIf="dataSource?.length == 0 || dataSource?.length == undefined">
+        <td [attr.colspan]="columns?.length" class="text-center">
+          <b>No Data Found.</b>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="pagination mt-2" *ngIf="pagination === true">
+  <pagination-controls
+    (pageChange)="pageChanged($event)"
+    [maxSize]="10"
+    [responsive]="true"
+  ></pagination-controls>
+</div>

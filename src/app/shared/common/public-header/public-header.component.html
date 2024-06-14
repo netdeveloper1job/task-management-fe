@@ -1,0 +1,53 @@
+<div class="public-header">
+  <nav class="navbar sticky-top navbar-light">
+    <div class="col-md-4">
+      <div class="navbar-header">
+
+      </div>
+    </div>
+    <div class="col-md-4"  *ngIf="router.url !== '/login'">
+      <div class="text-center header-center-text">
+        <h5></h5>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="right-menu">
+        <div class="btn-group" dropdown *ngIf="router.url !== '/login'">
+          <a
+            id="button-dropright"
+            role="button"
+            dropdownToggle
+            class="dropdown-toggle"
+            aria-controls="dropright-basic"
+          >
+            <i class="fa fa-user fa-2x" aria-hidden="true"></i>
+          </a>
+
+          <ul
+            id="dropright-basic"
+            *dropdownMenu
+            class="dropdown-menu dropdown-menu-right"
+            role="menu"
+            aria-labelledby="button-dropright"
+          >
+            <li role="menuitem">
+              <div class="profile-name-section">
+                <span class="profile-name"
+                  ><b class="text-capitalize">{{ userDetails.name }}</b>
+                  <p>
+                    <i class="profile-email">{{ userDetails.email }}</i>
+                  </p>
+                </span>
+              </div>
+            </li>
+            <li role="menuitem">
+              <a class="dropdown-item" role="button" (click)="logOut()"
+                >Logout</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>

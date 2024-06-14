@@ -1,0 +1,41 @@
+<div
+  class="d-flex align-items-center flex-row gap-40"
+  *ngIf="getScreenWidth > 768"
+>
+  <div class="menu d-flex" *ngFor="let data of menusData" [routerLinkActive]="'active'">
+    <ul>
+      <li>
+        <a [routerLink]="data.routerLink">{{ data.label }}</a>
+        <ul class="dropdown" *ngIf="data?.subMenuItems?.length > 0">
+          <li *ngFor="let submenus of data.subMenuItems" [routerLinkActive]="'active'">
+            <a [routerLink]="submenus.routerLink">{{ submenus.label }}</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div
+  class="sidebar"
+  *ngIf="getScreenWidth <= 768"
+  [ngClass]="{ open: isSidebarOpen }"
+>
+  <div class="d-flex justify-content-between">
+    <div class="menu">
+      <ul class="toggle-ul" *ngFor="let data of menusData">
+        <li>
+          <a [routerLink]="data.routerLink">{{ data.label }} </a>
+          <ul class="dropdown" *ngIf="data?.subMenuItems?.length > 0">
+            <li *ngFor="let submenus of data.subMenuItems">
+              <a [routerLink]="submenus.routerLink">{{ submenus.label }}</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="mx-2">
+      <i class="fa fa-times" aria-hidden="true" (click)="hideToggle()"></i>
+    </div>
+  </div>
+</div>

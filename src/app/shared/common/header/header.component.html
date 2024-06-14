@@ -1,0 +1,64 @@
+<div class="header">
+  <nav class="navbar sticky-top navbar-light">
+    <div class="col-md-4">
+      <div class="navbar-header" routerLink="/public/">
+        <a class="navbar-brand" href="javascript:void(0)" class="logo"
+          ><p class="h1"></p>
+        </a>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="text-center header-center-text">
+        <h5> </h5>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="right-menu">
+        <div class="btn-group" dropdown>
+          <a
+            id="button-dropright"
+            role="button"
+            dropdownToggle
+            class="dropdown-toggle"
+            aria-controls="dropright-basic"
+          >
+            <i class="fa fa-user fa-2x" aria-hidden="true"></i>
+          </a>
+          <a *ngIf="getScreenWidth <= 768"
+            ><i
+              class="fa fa-bars fa-lg"
+              aria-hidden="true"
+              (click)="showToggle()"
+            ></i
+          ></a>
+
+          <ul
+            id="dropright-basic"
+            *dropdownMenu
+            class="dropdown-menu dropdown-menu-right"
+            role="menu"
+            aria-labelledby="button-dropright"
+          >
+            <li role="menuitem">
+              <div class="profile-name-section">
+                <span class="profile-name"
+                  ><b class="text-capitalize">{{ userDetails.name }}</b>
+                  <p><i class="profile-email">{{ userDetails.email }}</i></p>
+                </span>
+              </div>
+            </li>
+            <li role="menuitem">
+              <a class="dropdown-item" role="button" [routerLink]="['/task/profile',userDetails.id]">My Profile</a>
+            </li>
+            <li role="menuitem">
+              <a class="dropdown-item" role="button" (click)="logOut()"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="sub-menu">
+      <ng-template *ngTemplateOutlet="menuTemplate"></ng-template>
+    </div>
+  </nav>
+</div>

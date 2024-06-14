@@ -1,0 +1,21 @@
+@import "src/assets/theme/variables.scss";
+.row-padding {
+  padding: 10px;
+  .card-padding {
+    padding: 40px;
+  }
+  .card-layout.text-center {
+    background: #efefef;
+    border-radius: 20px;
+    border: 1px solid #e3e1e1;
+    height: 352px;
+    cursor: pointer;
+    .image-box {
+      height: 260px;
+    }
+    img {
+      // border-radius: 10px 10px 0px 0px;
+      height: 100%;
+    }
+  }
+}

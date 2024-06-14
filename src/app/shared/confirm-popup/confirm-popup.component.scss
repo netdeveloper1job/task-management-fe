@@ -1,0 +1,23 @@
+@import "src/assets/theme/variables.scss";
+@import "src/assets/theme/style.scss";
+.confirm-popup {
+  padding: 12px;
+  .title {
+    font-size: 18px;
+    font-weight: 500;
+  }
+  button {
+    .cross-icon {
+      font-size: 24px;
+    }
+  }
+  .btn-outline {
+    outline: 1px solid black;
+  }
+
+  .add-button {
+    height: 28px;
+    line-height: 0.1em;
+    width: 72px;
+  }
+}

@@ -1,0 +1,16 @@
+@import "src/assets/theme/variables.scss";
+@import "src/assets/theme/style.scss";
+.custom-input {
+  background-color: $light-gray;
+}
+
+img.profile-image {
+  width: 60px;
+  border-radius: 50%;
+}
+.avatar {
+  vertical-align: middle;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}

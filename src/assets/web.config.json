@@ -1,0 +1,10 @@
+{
+    "API_URL": "http://localhost:3000",
+    "SWAGGER_PATH": "src/swagger/providers/",
+    "SWAGGER_SUB_PATH": "/api-json",
+    "default logo": "assets/images/logo.png",
+    "intervalTime": 60000,
+    "timerSyncInterval": 15000,
+    "sessionTimeout": 15,
+    "messageCenterInterval": 10
+}

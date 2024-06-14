@@ -1,0 +1,52 @@
+.public-header {
+  .navbar {
+    background: linear-gradient(to right ,#f8fcfb,#70aff7);
+    // box-shadow: 5px 10px 5px 5px #c2c2c2;
+    height: 66px;
+
+    .right-menu {
+      float: right;
+    }
+
+    .header-center-text {
+      color:#2c2929;
+    }
+
+    .navbar-header {
+      height: 60px;
+      // padding-left: 18px;
+
+      a.logo img {
+        height: 50px;
+      }
+
+
+      .new_logo {
+        padding: 10px;
+      }
+    }
+    #button-dropright {
+      position: relative;
+      right: 14px;
+      bottom: 5px;
+      color: #fff;
+    }
+    .profile-name-section {
+      height: 50px;
+      background-color: #ebe9e9;
+    }
+
+    .profile-name {
+      position: relative;
+      padding: 8px;
+    }
+
+    i.profile-email {
+      font-size: 15px;
+      padding: 8px;
+    }
+  }
+  a.logo {
+    text-decoration: none;
+  }
+}

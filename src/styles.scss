@@ -1,0 +1,94 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import "./node_modules/bootstrap/scss/bootstrap";
+
+/* Importing Datepicker SCSS file. */
+@import "node_modules/ngx-bootstrap/datepicker/bs-datepicker";
+
+/* Importing Toastr SCSS file. */
+@import "node_modules/ngx-toastr/toastr";
+@import "src/assets/theme/variables.scss";
+
+/* Dynamic Gapping. */
+@for $i from 1 through 1000 {
+  .gap-#{$i} {
+    gap: #{$i}px;
+  }
+}
+.menu {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1c2136;
+
+  a {
+    text-decoration: none;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+  }
+
+  li {
+    position: relative;
+    text-decoration: none;
+    transition-duration: 0.5s;
+  }
+
+  li a {
+    color: #1c2136;
+  }
+
+  li:hover {
+    cursor: pointer;
+  }
+
+  ul li ul {
+    background: #afcbed;
+    visibility: hidden;
+    opacity: 0;
+    min-width: 8rem;
+    position: absolute;
+    transition: all 0.5s ease;
+    margin-top: 0px;
+    padding: 12px;
+    left: 0;
+    display: none;
+  }
+
+  ul li:hover > ul,
+  ul li ul:hover {
+    visibility: visible;
+    opacity: 1;
+    display: block;
+  }
+
+  ul li ul li {
+    clear: both;
+    width: 100%;
+    padding: 8px;
+    border-bottom: 0.1px solid black;
+  }
+}
+
+.text-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100px;
+}
+
+/* Adjust tooltip position */
+.tooltip-container:hover .text-ellipsis::after {
+  content: attr(title);
+  position: relative;
+  left: 0; /* Adjust as needed */
+  background-color: black;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  z-index: 1;
+  width: auto;
+}

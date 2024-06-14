@@ -1,0 +1,13 @@
+@import "src/assets/theme/variables.scss";
+.task-management {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+
+  .page-content {
+    width: 100%;
+    height: calc(100% - 91.8px);
+    overflow: auto;
+    background: $very-pale-blue;
+  }
+}

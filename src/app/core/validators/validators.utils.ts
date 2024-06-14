@@ -1,0 +1,1 @@
+export const ALPHA_NUMERIC_ONLY = /^([A-Za-z]|[0-9])+$/;

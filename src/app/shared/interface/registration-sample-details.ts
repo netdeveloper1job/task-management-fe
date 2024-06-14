@@ -1,0 +1,31 @@
+export interface RegistrationSampleDetails {
+  batchNo: string;
+  brandName: string;
+  charges: string;
+  createdBy: string;
+  createdDate: string;
+  id: number;
+  inspJobFileNo: string;
+  parameters: string;
+  registrationSampleId: number;
+  sampleId: string;
+  sampleMatrix: string;
+  sampleName: string;
+  samplePacking: string;
+  sampling: string;
+  samplingDate: string;
+  sampleCode: string;
+  nameOfSampler: string;
+  samplingLocation: string;
+  samplingMethod: string;
+  sealNo: string;
+  testToBePerformed: string;
+  sampleDetailsPicture: string;
+  conditionOnReceipt: string;
+  sampleQuantity: string;
+  dateOfReporting: string;
+  remark: string;
+  segment: string;
+  updatedBy: string;
+  updatedDate: string;
+}

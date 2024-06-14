@@ -1,0 +1,64 @@
+<section class="login-page">
+  <app-public-header></app-public-header>
+  <div class="page-container">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mt-4">
+         <h1 class="mt-4" style="color: hsl(220, 24%, 45%)">
+            Welcome <br />
+            <span style="color: rgb(4, 5, 107)" class="heading"></span>
+          </h1>
+          <p class="mb-4 opacity-70" style="color: rgb(4, 5, 107)">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+            Temporibus, expedita iusto veniam atque, magni tempora mollitia
+            dolorum consequatur nulla, neque debitis eos reprehenderit quasi ab
+            ipsum nisi dolorem modi. Quos?
+          </p>
+        </div>
+        <div class="col-md-2"></div>
+        <div class="col-md-4 ">
+          <div class="card">
+            <div class="card-body px-4 py-5">
+              <h3 class="text-center" style="color: hsl(219, 43%, 43%)">LOGIN</h3>
+              <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+                <input
+                  type="text"
+                  formControlName="username"
+                  name="username"
+                  class="form-control mb-3 mt-4"
+                  required="required"
+                  placeholder="Username"
+                />
+
+                <div class="form-group position-relative mb-3">
+                  <input
+                    class="form-control py-2 pr-5 mt-4"
+                    id="inputPassword"
+                    [type]="showPassword ? 'text' : 'password'"
+                    placeholder="Password"
+                    formControlName="password"
+                  />
+
+                  <i
+                    alt="show"
+                    class="fa fa-eye position-absolute"
+                    (click)="togglePasswordVisibility()"
+                    [class.hide]="showPassword"
+                  ></i>
+                  <i
+                    alt="hide"
+                    class="fa fa-eye-slash position-absolute"
+                    (click)="togglePasswordVisibility()"
+                    [class.hide]="!showPassword"
+                  ></i>
+                </div>
+                <button class="btn btn-primary mt-3 mb-3" [disabled]="form.invalid">Login</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-public-footer></app-public-footer>
+</section>

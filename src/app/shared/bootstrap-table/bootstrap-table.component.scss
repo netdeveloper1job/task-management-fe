@@ -1,0 +1,62 @@
+@import "src/assets/theme/variables.scss";
+
+.bootsrtap-table {
+  table {
+    font-size: 13px;
+
+    border: 1px solid $light-grayish-red;
+    background-color: $White
+
+    }
+  }
+
+  th {
+    background-color: $light-grayish-blue;
+    text-transform: uppercase;
+    background-color: $very-soft-cyan;
+    font-size: 13px;
+    color: $Black;
+    font-weight:400;
+    padding: 8px;
+    text-wrap: nowrap;
+
+  }
+  tr:first-child {
+    border-top: 0.5pt solid $moderate-blue;
+
+  .table-bordered > :not(caption) > * {
+    border-color: $light-grayish-blue-2;
+  }
+
+  .table-bordered > :not(caption) > * > * {
+    border-color: $light-grayish-blue-2;
+  }
+  td {
+    padding: 5px 0.5rem;
+    white-space: nowrap;
+
+  }
+  &.common-blue{
+    th{
+      background-color: $very-soft-cyan;
+      color: $Black;
+      font-size: 13px;
+    }
+  }
+
+}
+
+tr.table-danger {
+  pointer-events: none;
+}
+
+.pagination{
+  float: right;
+}
+
+.fix-column {
+  position: sticky !important;
+  z-index: 2;
+  right: 0px;
+}
+

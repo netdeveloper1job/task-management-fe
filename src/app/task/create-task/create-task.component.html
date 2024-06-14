@@ -1,0 +1,183 @@
+<div class="content">
+  <div class="card p-2">
+    <div class="d-flex align-items-center justify-content-between">
+      <div class="grid-title">CREATE TASK</div>
+    </div>
+    <form [formGroup]="form" (ngSubmit)="save()">
+      <div class="create-form">
+        <!-- First row -->
+        <div class="row mt-2">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Title</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="title"
+                [ngClass]="{
+                  'error-border':
+                    submitted && form.controls['title'].hasError('required')
+                }"
+              />
+              <div
+                *ngIf="submitted && form.controls['title'].hasError('required')"
+                class="text-danger mt-1"
+              >
+                Title is required
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="exampleInputEmail2">Description</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="description"
+                [ngClass]="{
+                  'error-border':
+                    submitted &&
+                    form.controls['description'].hasError('required')
+                }"
+              />
+              <div
+                *ngIf="
+                  submitted && form.controls['description'].hasError('required')
+                "
+                class="text-danger mt-1"
+              >
+                Description is required
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Second row -->
+        <div class="row mt-2">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Status</label>
+              <select
+                class="form-select form-control"
+                formControlName="status"
+                [ngClass]="{
+                  'error-border':
+                    submitted && form.controls['status'].hasError('required')
+                }"
+              >
+                <option value="">Select Status</option>
+                <option value="To Do">To Do</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Done">Done</option>
+              </select>
+              <div
+                *ngIf="
+                  submitted && form.controls['status'].hasError('required')
+                "
+                class="text-danger mt-1"
+              >
+                Status is required
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="exampleInputText1">Due Date</label>
+              <input
+                type="date"
+                class="form-control"
+                id="exampleInputText1"
+                formControlName="dueDate"
+                [ngClass]="{
+                  'error-border':
+                    submitted && form.controls['dueDate'].hasError('required')
+                }"
+              />
+              <div
+                *ngIf="
+                  submitted && form.controls['dueDate'].hasError('required')
+                "
+                class="text-danger mt-1"
+              >
+                Due Date is required
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-2">
+        <div class="col-md-6 d-flex justify-content-start">
+          <button
+            type="submit"
+            class="btn btn-primary button-style custom-button"
+          >
+            {{ buttonType }}
+          </button>
+          <button
+            type="button"
+            class="btn btn-secondary button-style mx-1 custom-button"
+            (click)="cancel()"
+            *ngIf="buttonType === 'Update'"
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+    </form>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="grid-title mt-3">TASK LIST</div>
+      </div>
+      <div class="col-md-2">
+        <select class="form-select filter" (change)="filter()" [(ngModel)]="filterValue">
+          <option value="all">All</option>
+          <option value="To Do">To Do</option>
+          <option value="In Progress">In Progress</option>
+          <option value="Done">Done</option>
+        </select>
+      </div>
+      <div class="col-md-2">
+        <input type="text" class="form-control" placeholder="Search" (keyup)="search($event)"/>
+      </div>
+      <div class="col-md-2">
+        <select class="form-select filter" (click)="sorting($event)">
+          <option value="asc">Ascending</option>
+          <option value="dsc">Descending</option>
+        </select>
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div class="col-12">
+        <app-bootstrap-table
+          [columns]="columns"
+          [dataSource]="dataSource"
+          [bodyTemplate]="bodyTemplate"
+          [theme]="'common-blue'"
+        ></app-bootstrap-table>
+        <ng-template #bodyTemplate let-item="row" let-column="column">
+          <ng-container *ngIf="column.dataField === 'Action'">
+            <i
+              class="fa fa-pencil"
+              role="button"
+              aria-hidden="true"
+              (click)="editTask(item)"
+            ></i
+            >&nbsp;
+            <i
+              class="fa fa-trash"
+              role="button"
+              aria-hidden="true"
+              (click)="deleteTask(item.id)"
+            ></i>
+          </ng-container>
+          <ng-container *ngIf="column.dataField === 'createdAt'">
+            {{ item.createdAt | date }}
+          </ng-container>
+          <ng-container *ngIf="column.dataField === 'dueDate'">
+            {{ item.dueDate | date }}
+          </ng-container>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>

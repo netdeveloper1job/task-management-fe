@@ -1,0 +1,29 @@
+@import "src/assets/theme/variables.scss";
+@import "src/assets/theme/style.scss";
+
+.content {
+  .field-value {
+    // .custom-input {
+    //   background-color: $light-gray;
+    // }
+
+    .title {
+      font-size: 10px;
+    }
+  }
+
+  .filter {
+    // background-color: $lightBlue;
+    padding-top: 3px;
+    font-size: 14px;
+  }
+  .custom-button {
+    height: 27px;
+  }
+  input{
+    height:38px
+  }
+  select{
+    height:38px
+  }
+}

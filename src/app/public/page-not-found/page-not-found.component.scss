@@ -1,0 +1,33 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-family: sans-serif;
+  background-color: #e7ffff;
+}
+
+h1,
+a {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+.section {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.section .error {
+  font-size: 54px;
+  color: #008b62;
+  text-shadow: 1px 3px 1px #00593e, 2px 4px 6px #00593e;
+}
+
+.page {
+  margin: 2rem 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #444;
+}

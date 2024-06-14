@@ -1,0 +1,61 @@
+<div class="genric-form">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <ng-container *ngFor="let row of controls">
+      <div [style.gridTemplateColumns]="getGridColumnTemplate(row.rowColumns)">
+        <ng-container *ngFor="let control of row.controls">
+          <label
+            [for]="control.name"
+            [style.color]="design.labelColor || 'black'"
+            >{{ control.label }}</label
+          >
+          <div [ngSwitch]="control.type">
+            <input
+              *ngSwitchCase="'text'"
+              [formControlName]="control.name"
+              [placeholder]="control.placeholder"
+            />
+            <textarea
+              *ngSwitchCase="'textarea'"
+              [formControlName]="control.name"
+              [placeholder]="control.placeholder"
+            ></textarea>
+            <select *ngSwitchCase="'select'" [formControlName]="control.name">
+              <option value="" disabled selected>
+                {{ control.placeholder || "Select" }}
+              </option>
+              <option
+                *ngFor="let option of control.options"
+                [value]="option.value"
+              >
+                {{ option.label }}
+              </option>
+            </select>
+            <!-- Add more input types as needed -->
+          </div>
+          <div
+            *ngIf="
+              form.get(control.name)?.invalid && form.get(control.name)?.touched
+            "
+          >
+            <span *ngIf="form.get(control.name)?.hasError('required')">{{
+              control.validationMessage || "This field is required."
+            }}</span>
+            <span *ngIf="form.get(control.name)?.hasError('pattern')">{{
+              control.validationMessage || "Invalid pattern."
+            }}</span>
+            <!-- Add more custom validation messages as needed -->
+          </div>
+        </ng-container>
+      </div>
+    </ng-container>
+
+    <button
+      type="submit"
+      [disabled]="form.invalid"
+      [style.backgroundColor]="design.buttonColor || 'blue'"
+      [style.fontSize]="design.buttonFontSize || '16px'"
+    >
+      Submit
+    </button>
+  </form>
+</div>

@@ -1,0 +1,35 @@
+<div class="confirm-popup">
+    <div class="d-flex align-item-center justify-content-between">
+      <div class="d-flex align-items-center justify-content-between title">
+       {{headerBody}}
+      </div>
+      <div class="d-flex align-items-center">
+        <button
+          type="button"
+          class="btn"
+          aria-label="Close"
+          (click)="bsModalRef.hide()"
+        >
+          <span aria-hidden="true" class="cross-icon">&times;</span>
+        </button>
+      </div>
+    </div>
+    <form>
+      <div class="d-flex align-item-center justify-content-between mt-4">
+        <div class="flex-spacer"></div>
+        <div class="d-flex align-items-center justify-content-between">
+          <button
+            type="button"
+            class="btn btn-outline mx-3 add-button"
+             (click)="closeModal('no')"
+          >
+            No
+          </button>
+          <button class="btn btn-danger add-button" (click)="closeModal('yes')">
+            Yes
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+  
