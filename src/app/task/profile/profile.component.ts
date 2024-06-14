@@ -104,6 +104,7 @@ export class ProfileComponent {
     this.userService.userControllerFindOne({ id: this.userId }).subscribe(
       (res: any) => {
         this.userDetails = res.data;
+        console.log('userDetails',this.userDetails)
         this.form.patchValue({
           name: this.userDetails.name,
           email: this.userDetails.email,

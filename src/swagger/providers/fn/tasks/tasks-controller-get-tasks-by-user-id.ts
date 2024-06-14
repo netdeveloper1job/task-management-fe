@@ -6,23 +6,24 @@ import { filter, map } from 'rxjs/operators';
 import { StrictHttpResponse } from '../../strict-http-response';
 import { RequestBuilder } from '../../request-builder';
 
+import { TaskWithResponse } from '../../models/task-with-response';
 
 export interface TasksControllerGetTasksByUserId$Params {
   id: number;
 }
 
-export function tasksControllerGetTasksByUserId(http: HttpClient, rootUrl: string, params: TasksControllerGetTasksByUserId$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
+export function tasksControllerGetTasksByUserId(http: HttpClient, rootUrl: string, params: TasksControllerGetTasksByUserId$Params, context?: HttpContext): Observable<StrictHttpResponse<TaskWithResponse>> {
   const rb = new RequestBuilder(rootUrl, tasksControllerGetTasksByUserId.PATH, 'get');
   if (params) {
     rb.path('id', params.id, {});
   }
 
   return http.request(
-    rb.build({ responseType: 'text', accept: '*/*', context })
+    rb.build({ responseType: 'json', accept: 'application/json', context })
   ).pipe(
     filter((r: any): r is HttpResponse<any> => r instanceof HttpResponse),
     map((r: HttpResponse<any>) => {
-      return (r as HttpResponse<any>).clone({ body: undefined }) as StrictHttpResponse<void>;
+      return r as StrictHttpResponse<TaskWithResponse>;
     })
   );
 }

@@ -21,6 +21,7 @@ import { userControllerUpdate } from '../fn/users/user-controller-update';
 import { UserControllerUpdate$Params } from '../fn/users/user-controller-update';
 import { userControllerUploadFile } from '../fn/users/user-controller-upload-file';
 import { UserControllerUploadFile$Params } from '../fn/users/user-controller-upload-file';
+import { UserWithResponse } from '../models/user-with-response';
 
 @Injectable({ providedIn: 'root' })
 export class UsersService extends BaseService {
@@ -37,7 +38,7 @@ export class UsersService extends BaseService {
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  userControllerCreate$Response(params: UserControllerCreate$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
+  userControllerCreate$Response(params: UserControllerCreate$Params, context?: HttpContext): Observable<StrictHttpResponse<UserWithResponse>> {
     return userControllerCreate(this.http, this.rootUrl, params, context);
   }
 
@@ -47,9 +48,9 @@ export class UsersService extends BaseService {
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  userControllerCreate(params: UserControllerCreate$Params, context?: HttpContext): Observable<void> {
+  userControllerCreate(params: UserControllerCreate$Params, context?: HttpContext): Observable<UserWithResponse> {
     return this.userControllerCreate$Response(params, context).pipe(
-      map((r: StrictHttpResponse<void>): void => r.body)
+      map((r: StrictHttpResponse<UserWithResponse>): UserWithResponse => r.body)
     );
   }
 
@@ -62,7 +63,7 @@ export class UsersService extends BaseService {
    *
    * This method doesn't expect any request body.
    */
-  userControllerFindAll$Response(params?: UserControllerFindAll$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
+  userControllerFindAll$Response(params?: UserControllerFindAll$Params, context?: HttpContext): Observable<StrictHttpResponse<UserWithResponse>> {
     return userControllerFindAll(this.http, this.rootUrl, params, context);
   }
 
@@ -72,9 +73,9 @@ export class UsersService extends BaseService {
    *
    * This method doesn't expect any request body.
    */
-  userControllerFindAll(params?: UserControllerFindAll$Params, context?: HttpContext): Observable<void> {
+  userControllerFindAll(params?: UserControllerFindAll$Params, context?: HttpContext): Observable<UserWithResponse> {
     return this.userControllerFindAll$Response(params, context).pipe(
-      map((r: StrictHttpResponse<void>): void => r.body)
+      map((r: StrictHttpResponse<UserWithResponse>): UserWithResponse => r.body)
     );
   }
 
@@ -87,7 +88,7 @@ export class UsersService extends BaseService {
    *
    * This method doesn't expect any request body.
    */
-  userControllerFindOne$Response(params: UserControllerFindOne$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
+  userControllerFindOne$Response(params: UserControllerFindOne$Params, context?: HttpContext): Observable<StrictHttpResponse<UserWithResponse>> {
     return userControllerFindOne(this.http, this.rootUrl, params, context);
   }
 
@@ -97,9 +98,9 @@ export class UsersService extends BaseService {
    *
    * This method doesn't expect any request body.
    */
-  userControllerFindOne(params: UserControllerFindOne$Params, context?: HttpContext): Observable<void> {
+  userControllerFindOne(params: UserControllerFindOne$Params, context?: HttpContext): Observable<UserWithResponse> {
     return this.userControllerFindOne$Response(params, context).pipe(
-      map((r: StrictHttpResponse<void>): void => r.body)
+      map((r: StrictHttpResponse<UserWithResponse>): UserWithResponse => r.body)
     );
   }
 
@@ -112,7 +113,7 @@ export class UsersService extends BaseService {
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  userControllerUpdate$Response(params: UserControllerUpdate$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
+  userControllerUpdate$Response(params: UserControllerUpdate$Params, context?: HttpContext): Observable<StrictHttpResponse<UserWithResponse>> {
     return userControllerUpdate(this.http, this.rootUrl, params, context);
   }
 
@@ -122,9 +123,9 @@ export class UsersService extends BaseService {
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  userControllerUpdate(params: UserControllerUpdate$Params, context?: HttpContext): Observable<void> {
+  userControllerUpdate(params: UserControllerUpdate$Params, context?: HttpContext): Observable<UserWithResponse> {
     return this.userControllerUpdate$Response(params, context).pipe(
-      map((r: StrictHttpResponse<void>): void => r.body)
+      map((r: StrictHttpResponse<UserWithResponse>): UserWithResponse => r.body)
     );
   }
 
@@ -137,7 +138,7 @@ export class UsersService extends BaseService {
    *
    * This method doesn't expect any request body.
    */
-  userControllerRemove$Response(params: UserControllerRemove$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
+  userControllerRemove$Response(params: UserControllerRemove$Params, context?: HttpContext): Observable<StrictHttpResponse<UserWithResponse>> {
     return userControllerRemove(this.http, this.rootUrl, params, context);
   }
 
@@ -147,9 +148,9 @@ export class UsersService extends BaseService {
    *
    * This method doesn't expect any request body.
    */
-  userControllerRemove(params: UserControllerRemove$Params, context?: HttpContext): Observable<void> {
+  userControllerRemove(params: UserControllerRemove$Params, context?: HttpContext): Observable<UserWithResponse> {
     return this.userControllerRemove$Response(params, context).pipe(
-      map((r: StrictHttpResponse<void>): void => r.body)
+      map((r: StrictHttpResponse<UserWithResponse>): UserWithResponse => r.body)
     );
   }
 
@@ -162,7 +163,7 @@ export class UsersService extends BaseService {
    *
    * This method sends `multipart/form-data` and handles request body of type `multipart/form-data`.
    */
-  userControllerUploadFile$Response(params: UserControllerUploadFile$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
+  userControllerUploadFile$Response(params: UserControllerUploadFile$Params, context?: HttpContext): Observable<StrictHttpResponse<UserWithResponse>> {
     return userControllerUploadFile(this.http, this.rootUrl, params, context);
   }
 
@@ -172,9 +173,9 @@ export class UsersService extends BaseService {
    *
    * This method sends `multipart/form-data` and handles request body of type `multipart/form-data`.
    */
-  userControllerUploadFile(params: UserControllerUploadFile$Params, context?: HttpContext): Observable<void> {
+  userControllerUploadFile(params: UserControllerUploadFile$Params, context?: HttpContext): Observable<UserWithResponse> {
     return this.userControllerUploadFile$Response(params, context).pipe(
-      map((r: StrictHttpResponse<void>): void => r.body)
+      map((r: StrictHttpResponse<UserWithResponse>): UserWithResponse => r.body)
     );
   }
 
