@@ -13,11 +13,8 @@ import { DeleteConfirmPopupComponent } from './delete-confirm-popup/delete-confi
 import { NgxPaginationModule } from 'ngx-pagination';
 import { TooltipModule  } from 'ngx-bootstrap/tooltip';
 import { SelectDropDownModule } from 'ngx-select-dropdown';
-import { LoadingComponent } from './loading/loading.component'
 import { NgxSpinnerModule } from 'ngx-spinner';
-import { AllMenusComponent } from './all-menus/all-menus.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
-import { ConfirmPopupComponent } from './confirm-popup/confirm-popup.component';
 import { NgxGaugeModule } from 'ngx-gauge';
 
 @NgModule({
@@ -27,9 +24,6 @@ import { NgxGaugeModule } from 'ngx-gauge';
     HeaderComponent,
     BootstrapTableComponent,
     DeleteConfirmPopupComponent,
-    LoadingComponent,
-    AllMenusComponent,
-    ConfirmPopupComponent,
   ],
   imports: [
     CommonModule,
@@ -59,8 +53,6 @@ import { NgxGaugeModule } from 'ngx-gauge';
     TooltipModule,
     SelectDropDownModule,
     NgxSpinnerModule,
-    LoadingComponent,
-    AllMenusComponent,
     NgMultiSelectDropDownModule,
     NgxGaugeModule
   ],

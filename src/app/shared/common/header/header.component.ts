@@ -26,12 +26,7 @@ export class HeaderComponent {
   logOut() {
     this.auth.logout();
   }
-
-  showToggle() {
-    this.service.show(true);
-  }
-
-  @HostListener('window:resize', ['$event'])
+@HostListener('window:resize', ['$event'])
   onWindowResize() {
     this.getScreenWidth = window.innerWidth;
   }
