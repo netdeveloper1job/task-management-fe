@@ -1,7 +1,7 @@
-<div class="content">
+<div class="container-fluid task-content">
   <div class="card p-2">
     <div class="d-flex align-items-center justify-content-between">
-      <div class="grid-title">CREATE TASK</div>
+      <h4>CREATE TASK</h4>
     </div>
     <form [formGroup]="form" (ngSubmit)="save()">
       <div class="create-form">
@@ -109,13 +109,13 @@
         <div class="col-md-6 d-flex justify-content-start">
           <button
             type="submit"
-            class="btn btn-primary button-style custom-button"
+            class="btn btn-primary"
           >
             {{ buttonType }}
           </button>
           <button
             type="button"
-            class="btn btn-secondary button-style mx-1 custom-button"
+            class="btn btn-secondary mx-1"
             (click)="cancel()"
             *ngIf="buttonType === 'Update'"
           >
@@ -124,22 +124,23 @@
         </div>
       </div>
     </form>
+    <hr class="mt-4">
     <div class="row">
-      <div class="col-md-6">
-        <div class="grid-title mt-3">TASK LIST</div>
+      <div class="col-md-6 mt-2">
+        <h4>TASK LIST</h4>
       </div>
-      <div class="col-md-2">
-        <select class="form-select filter" (change)="filter()" [(ngModel)]="filterValue">
+      <div class="col-md-2 mt-2">
+        <select class="form-select" (change)="filter()" [(ngModel)]="filterValue">
           <option value="all">All</option>
           <option value="To Do">To Do</option>
           <option value="In Progress">In Progress</option>
           <option value="Done">Done</option>
         </select>
       </div>
-      <div class="col-md-2">
+      <div class="col-md-2 mt-2">
         <input type="text" class="form-control" placeholder="Search" (keyup)="search($event)"/>
       </div>
-      <div class="col-md-2">
+      <div class="col-md-2 mt-2">
         <select class="form-select filter" (click)="sorting($event)">
           <option value="asc">Ascending</option>
           <option value="dsc">Descending</option>
