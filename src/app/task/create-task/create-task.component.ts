@@ -163,6 +163,7 @@ export class CreateTaskComponent {
         this.taskService.tasksControllerRemove({ id: id }).subscribe(
           (res) => {
             this.getAllTask();
+            this.toastr.success('Delete successfully');
           },
           (error) => {
             this.toastr.error(error.error);
