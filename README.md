@@ -2,6 +2,16 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.9.
 
+# Note
+
+Start by running the backend code, followed by the frontend code
+
+# Setup Instructions
+
+- •	Clone the project with git clone <repository url> in the command prompt.
+- •	Navigate to the cloned project directory and then run npm i to install necessary dependencies.
+- •	Start the frontend by running npm run start.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
