@@ -8,9 +8,9 @@ Start by running the backend code, followed by the frontend code
 
 # Setup Instructions
 
- 1.	Clone the project with git clone <repository url> in the command prompt.
- 2.	Navigate to the cloned project directory and then run npm i to install necessary dependencies.
- 3.	Start the frontend by running npm run start.
+1.	Clone the project with git clone <repository url> in the command prompt.
+2.	Navigate to the cloned project directory and then run npm i to install necessary dependencies.
+3.	Start the frontend by running npm run start.
 
 ## Development server
 
